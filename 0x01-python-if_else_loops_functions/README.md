@@ -2,7 +2,7 @@ A match statement takes an expression and compares its value to successive patte
 
 The simplest form compares a subject value against one or more literals:
 
-"""
+```
 def http_error(status):
     match status:
         case 400:
@@ -12,8 +12,8 @@ def http_error(status):
         case 418:
             return "I'm a teapot"
         case _:
-            return "Something's wrong with the interneti"
-"""
+            return "Something's wrong with the internet"
+```
 Note the last block: the “variable name” _ acts as a wildcard and never fails to match. If no case matches, none of the branches is executed.
 
 

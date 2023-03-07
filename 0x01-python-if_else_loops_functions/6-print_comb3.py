@@ -2,8 +2,8 @@
 for tens in range(9):
     for unit in range((tens + 1), 10):
         if tens != unit:
-            print(f"{tens:d}", end="")
+            print("{:d}".format(tens), end="")
             if (tens == 8 and unit == 9):
-                print(f"{unit:d}")
+                print("{:d}".format(unit))
             else:
-                print(f"{unit:d}", end=", ")
+                print("{:d}".format(unit), end=", ")

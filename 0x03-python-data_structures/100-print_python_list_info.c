@@ -2,9 +2,11 @@
 #include <stdlib.h>
 #include <Python.h>
 /**
- * print_python_list_info - function
- * 
- **/
+ * print_python_list_info - prints python list info
+ *
+ * @p: PyObject
+ * Return: no return
+ */
 void print_python_list_info(PyObject *p)
 {
     Py_ssize_t i, size;
@@ -23,10 +25,4 @@ void print_python_list_info(PyObject *p)
             printf("Element %ld: %s\n", i, Py_TYPE(PyList_GetItem(p, i))->tp_name);
         }
     }
-}
-
-int main(void)
-{
-	print_python_list_info();
-	return 0;
 }

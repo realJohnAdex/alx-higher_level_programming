@@ -1,0 +1,46 @@
+# Test cases for say_my_name function
+=====================================
+
+The 3-say_my_name module prints the first name and last name. The values
+provided must be strings, otherwise, TypeError is thrown.
+
+Docstring Checks
+================
+Checking for module docstring:
+
+>>> m = __import__("3-say_my_name").__doc__
+>>> len(m) > 1
+True
+
+Checking for function docstring:
+
+>>> f = __import__("3-say_my_name").say_my_name.__doc__
+>>> len(f) > 1
+True
+
+Test cases
+==========
+
+Import "say_my_name" from the "3-say_my_name" module:
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+# Test 1: Printing first name and last name
+>>> say_my_name("John", "Doe")
+My name is John Doe
+
+# Test 2: Printing only first name
+>>> say_my_name("Alice")
+My name is Alice 
+
+# Test 3: Trying to print with non-string first name raises TypeError
+>>> say_my_name(123)
+Traceback (most recent call last):
+    ...
+TypeError: first_name must be a string
+
+# Test 4: Trying to print with non-string last name raises TypeError
+>>> say_my_name("Bob", 123)
+Traceback (most recent call last):
+    ...
+TypeError: last_name must be a string
+

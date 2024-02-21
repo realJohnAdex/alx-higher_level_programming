@@ -1,0 +1,99 @@
+# Test cases for add_integer function
+=====================================
+
+The 0-add_integer module adds two integers. The values
+provided must be only integers of float, otherwise, TypeError 
+is thrown.
+
+Docstring Checks
+================
+Checking for module docstring:
+
+>>> m = __import__("0-add_integer").__doc__
+>>> len(m) > 1
+True
+
+Checking for function docstring:
+
+>>> f = __import__("0-add_integer").add_integer.__doc__
+>>> len(f) > 1
+True
+
+Test cases
+==========
+
+Import "add_integer" from the "0-add_integer" module:
+>>> add_integer = __import__('0-add_integer').add_integer
+
+# Test 1: Adding two positive integers
+>>> add_integer(5, 7)
+12
+
+# Test 2: Adding two negative integers
+>>> add_integer(-5, -7)
+-12
+
+# Test 3: Adding a positive integer and a negative integer
+>>> add_integer(5, -7)
+-2
+
+# Test 4: Adding two large integers
+>>> add_integer(999999999, 888888888)
+1888888887
+
+# Test 5: Adding two floating-point numbers
+>>> add_integer(5.5, 7.3)
+12
+
+# Test 6: Adding an integer and a float with one as the default value
+>>> add_integer(5, 1.5)
+6
+
+# Test 7: Adding two floats with one as the default value
+>>> add_integer(1.2, 1.2)
+2
+
+# Test 8: Calling add_integer with only one argument (uses default value for b)
+>>> add_integer(5)
+103
+
+# Test 9: Calling add_integer with no arguments raises TypeError
+>>> add_integer()
+Traceback (most recent call last):
+    ...
+TypeError: add_integer() missing 1 required positional argument: 'a'
+
+# Test 10: Trying to add a string and an integer raises TypeError
+>>> add_integer("5", 7)
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
+
+>>> add_integer(4, "Hello")
+Traceback (most recent call last):
+    ...
+TypeError: b must be an integer
+
+# Test 11: Calling add_integer with None as the first argument raises TypeError
+>>> add_integer(None, 7)
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
+
+# Test 12: Adding two floats that result in NaN raises ValueError
+>>> add_integer(float('nan'), float('nan'))
+Traceback (most recent call last):
+    ...
+ValueError: cannot convert float NaN to integer
+
+# Test 13: Adding two floats that result in positive infinity
+>>> add_integer(float('inf'), float('inf'))
+Traceback (most recent call last):
+    ...
+OverflowError: cannot convert float infinity to integer
+
+# Test 14: Adding two floats that result in negative infinity (should return negative infinity)
+>>> add_integer(float('-inf'), float('-inf'))
+Traceback (most recent call last):
+    ...
+OverflowError: cannot convert float infinity to integer

@@ -1,0 +1,70 @@
+# Test cases for matrix_divided function
+========================================
+
+The 2-matrix_divided module divides all elements of a matrix by a given number. The values
+provided must be a list of lists of integers/floats, and the divisor must be a number, 
+otherwise, TypeError is thrown. Divisor can't be equal to zero, otherwise, ZeroDivisionError
+is thrown.
+
+Docstring Checks
+================
+Checking for module docstring:
+
+>>> m = __import__("2-matrix_divided").__doc__
+>>> len(m) > 1
+True
+
+Checking for function docstring:
+
+>>> f = __import__("2-matrix_divided").matrix_divided.__doc__
+>>> len(f) > 1
+True
+
+Test cases
+==========
+
+Import "matrix_divided" from the "2-matrix_divided" module:
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+# Test 1: Dividing all elements of a matrix by a positive number
+>>> matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+>>> matrix_divided(matrix, 2)
+[[0.5, 1.0, 1.5], [2.0, 2.5, 3.0], [3.5, 4.0, 4.5]]
+
+# Test 2: Dividing all elements of a matrix by a negative number
+>>> matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+>>> matrix_divided(matrix, -2)
+[[-0.5, -1.0, -1.5], [-2.0, -2.5, -3.0], [-3.5, -4.0, -4.5]]
+
+# Test 3: Dividing all elements of a matrix by a float number
+>>> matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+>>> matrix_divided(matrix, 2.5)
+[[0.4, 0.8, 1.2], [1.6, 2.0, 2.4], [2.8, 3.2, 3.6]]
+
+# Test 4: Dividing all elements of a matrix by 0 (should raise ZeroDivisionError)
+>>> matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+>>> matrix_divided(matrix, 0)
+Traceback (most recent call last):
+    ...
+ZeroDivisionError: division by zero
+
+# Test 5: Dividing all elements of a non-matrix (should raise TypeError)
+>>> matrix = [1, 2, 3]
+>>> matrix_divided(matrix, 2)
+Traceback (most recent call last):
+    ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+# Test 6: Dividing all elements of a matrix where rows have different sizes (should raise TypeError)
+>>> matrix = [[1, 2, 3], [4, 5], [7, 8, 9]]
+>>> matrix_divided(matrix, 2)
+Traceback (most recent call last):
+    ...
+TypeError: Each row of the matrix must have the same size
+
+# Test 7: Dividing all elements of a matrix where div is not a number (should raise TypeError)
+>>> matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+>>> matrix_divided(matrix, 'a')
+Traceback (most recent call last):
+    ...
+TypeError: div must be a number

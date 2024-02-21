@@ -1,0 +1,60 @@
+# Test cases for print_square function
+======================================
+
+The 4-print_square module prints a square with the character #. The size
+provided must be an integer and greater than or equal to 0, otherwise, TypeError 
+or ValueError is thrown.
+
+Docstring Checks
+================
+Checking for module docstring:
+
+>>> m = __import__("4-print_square").__doc__
+>>> len(m) > 1
+True
+
+Checking for function docstring:
+
+>>> f = __import__("4-print_square").print_square.__doc__
+>>> len(f) > 1
+True
+
+Test cases
+==========
+
+Import "print_square" from the "4-print_square" module:
+>>> print_square = __import__('4-print_square').print_square
+
+# Test 1: Printing a square of size 5
+>>> print_square(5)
+#####
+#####
+#####
+#####
+#####
+
+# Test 2: Printing a square of size 0
+>>> print_square(0)
+
+# Test 3: Printing a square of size 1
+>>> print_square(1)
+#
+
+# Test 4: Printing a square of size 3
+>>> print_square(3)
+###
+###
+###
+
+# Test 5: Trying to print with non-integer size raises TypeError
+>>> print_square(3.5)
+Traceback (most recent call last):
+    ...
+TypeError: size must be an integer
+
+# Test 6: Trying to print with size less than 0 raises ValueError
+>>> print_square(-5)
+Traceback (most recent call last):
+    ...
+ValueError: size must be >= 0
+

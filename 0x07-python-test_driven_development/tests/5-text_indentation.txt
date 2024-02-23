@@ -1,0 +1,59 @@
+# Test cases for text_indentation function
+=========================================
+
+The 5-text_indentation module prints a text with 2 new lines after each of these characters: ., ? and :. The text
+provided must be a string, otherwise, TypeError is thrown.
+
+Docstring Checks
+================
+Checking for module docstring:
+
+>>> m = __import__("5-text_indentation").__doc__
+>>> len(m) > 1
+True
+
+Checking for function docstring:
+
+>>> f = __import__("5-text_indentation").text_indentation.__doc__
+>>> len(f) > 1
+True
+
+Test cases
+==========
+
+Import "text_indentation" from the "5-text_indentation" module:
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+# Test 1: Printing text with 2 new lines after each period, question mark, and colon
+>>> text_indentation("Hello. How are you? I'm fine: thanks.")
+Hello.
+<BLANKLINE>
+ How are you?
+<BLANKLINE>
+ I'm fine:
+<BLANKLINE>
+ thanks.
+<BLANKLINE>
+
+# Test 2: Printing empty text
+>>> text_indentation("")
+
+# Test 3: Printing text with no punctuation
+>>> text_indentation("This is a test without punctuation")
+This is a test without punctuation
+
+# Test 4: Trying to print with non-string text raises TypeError
+>>> text_indentation(123)
+Traceback (most recent call last):
+    ...
+TypeError: text must be a string
+
+# Test 5: Printing text with more than one punctuation together
+>>> text_indentation("This is a test with triple?: . punctuation")
+This is a test with triple?
+<BLANKLINE>
+:
+<BLANKLINE>
+ .
+<BLANKLINE>
+ punctuation

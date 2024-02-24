@@ -1,0 +1,40 @@
+Test cases for matrix_mul function
+===================================
+
+Import "matrix_mul" from the "100-matrix_mul" module:
+>>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+
+# Test case 1: Multiplying two valid matrices
+>>> matrix_mul([[1, 2], [3, 4]], [[5, 6], [7, 8]])
+[[19, 22], [43, 50]]
+
+# Test case 2: Multiplying matrices with different dimensions (should raise ValueError)
+>>> matrix_mul([[1, 2, 3], [4, 5, 6]], [[7, 8], [9, 10], [11, 12]])
+Traceback (most recent call last):
+    ...
+ValueError: m_a and m_b can't be multiplied
+
+# Test case 3: Multiplying an empty matrix with a non-empty matrix (should raise ValueError)
+>>> matrix_mul([], [[1, 2], [3, 4]])
+Traceback (most recent call last):
+    ...
+ValueError: m_a can't be empty or m_b can't be empty
+
+# Test case 4: Multiplying matrices with invalid elements (should raise TypeError)
+>>> matrix_mul([[1, 2], [3, 'a']], [[5, 6], [7, 8]])
+Traceback (most recent call last):
+    ...
+TypeError: m_a should contain only integers or floats or m_b should contain only integers or floats
+
+# Test case 5: Multiplying matrices with invalid types (should raise TypeError)
+>>> matrix_mul([[1, 2], [3, 4]], 'invalid')
+Traceback (most recent call last):
+    ...
+TypeError: m_a must be a list of lists or m_b must be a list of lists
+
+# Test case 6: Multiplying matrices with empty elements (should raise TypeError)
+>>> matrix_mul([[1, 2], []], [[5, 6], [7, 8]])
+Traceback (most recent call last):
+    ...
+TypeError: each row of m_a must be of the same size or each row of m_b must be of the same size
+

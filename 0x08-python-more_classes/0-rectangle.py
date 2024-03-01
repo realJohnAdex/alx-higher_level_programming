@@ -6,9 +6,4 @@ class Rectangle:
     Attributes:
         None
     """
-
-    def __init__(self):
-        """
-        Initializes a new instance of the Rectangle class.
-        """
-        pass
+    pass

@@ -6,13 +6,14 @@ module.exports = class Rectangle {
       this.height = h;
     }
   }
-    print () {
-        let str = '';
-        for (let i = 0; i < this.width; i++) {
-        str += 'X';
-        }
-        for (let i = 0; i < this.height; i++) {
-        console.log(str);
-        }
+
+  print () {
+    let str = '';
+    for (let i = 0; i < this.width; i++) {
+      str += 'X';
     }
+    for (let i = 0; i < this.height; i++) {
+      console.log(str);
+    }
+  }
 };

@@ -1,16 +1,19 @@
 #!/usr/bin/python3
+"""module list all states from the database"""
 import MySQLdb
 import sys
 
 def list_states(username, password, database):
+    """function list all states from the database"""
     # Connect to MySQL server
-    db = MySQLdb.connect(host="localhost", port=3306, user=username, passwd=password, db=database)
+    db = MySQLdb.connect(host="localhost", port=3306,
+            user=username, passwd=password, db=database)
 
     # Create cursor
     cursor = db.cursor()
 
     # Execute query to select all states
-    cursor.execute("SELECT * FROM states ORDER BY id ASC")
+    cursor.execute("SELECT * FROM states ORDER BY id")
 
     # Fetch all rows
     rows = cursor.fetchall()

@@ -3,11 +3,12 @@
 import MySQLdb
 import sys
 
+
 def list_states(username, password, database):
     """function list all states from the database"""
     # Connect to MySQL server
-    db = MySQLdb.connect(host="localhost", port=3306,
-            user=username, passwd=password, db=database)
+    db = MySQLdb.connect(host="localhost", port=3306, user=username,
+                         passwd=password, db=database)
 
     # Create cursor
     cursor = db.cursor()
@@ -25,6 +26,7 @@ def list_states(username, password, database):
     # Close cursor and connection
     cursor.close()
     db.close()
+
 
 if __name__ == "__main__":
     # Get arguments

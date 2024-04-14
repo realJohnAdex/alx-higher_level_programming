@@ -16,7 +16,7 @@ def list_states(username, password, database, srch_name):
 
     # SQL query
     query = "SELECT * FROM states\
-            WHERE name LIKE BINARY '()' ORDER BY id".format(srch_name)
+            WHERE name LIKE BINARY '{}' ORDER BY id".format(srch_name)
 
     # Execute query to select all states
     cursor.execute(query)

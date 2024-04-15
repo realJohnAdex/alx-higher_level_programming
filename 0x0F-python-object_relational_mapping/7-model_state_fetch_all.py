@@ -5,6 +5,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
 
+
 def list_states(username, password, database):
     """function listing all states"""
     # Create engine
@@ -24,6 +25,7 @@ def list_states(username, password, database):
 
     # Close session
     session.close()
+
 
 if __name__ == "__main__":
     # Get arguments

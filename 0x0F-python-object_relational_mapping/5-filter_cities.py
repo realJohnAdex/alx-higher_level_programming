@@ -15,9 +15,7 @@ def list_cities(username, password, database, srch_term):
     cursor = db.cursor()
 
     # SQL query with parameterized query
-    query = "SELECT cities.id AS city_id, cities.name AS city_name, \
-            states.name AS state_name \
-            FROM cities \
+    query = "SELECT * FROM cities \
             JOIN states ON cities.state_id = states.id \
             WHERE states.name LIKE BINARY %s \
             ORDER BY cities.id"

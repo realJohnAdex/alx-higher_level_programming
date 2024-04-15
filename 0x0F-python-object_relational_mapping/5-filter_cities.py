@@ -5,8 +5,8 @@ import MySQLdb
 import sys
 
 
-def list_states(username, password, database, srch_term):
-    """function list all states with a name starting with N"""
+def list_cities(username, password, database, srch_term):
+    """function list all cities with a name 'srch_term'"""
     # Connect to MySQL server
     db = MySQLdb.connect(host="localhost", port=3306, user=username,
                          passwd=password, db=database)
@@ -42,5 +42,5 @@ if __name__ == "__main__":
     username, password = sys.argv[1], sys.argv[2]
     database, srch_term = sys.argv[3], sys.argv[4]
 
-    # Call function to list states
-    list_states(username, password, database, srch_term)
+    # Call function to list cities
+    list_cities(username, password, database, srch_term)

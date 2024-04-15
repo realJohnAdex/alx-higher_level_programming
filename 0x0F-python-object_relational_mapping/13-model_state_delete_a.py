@@ -21,9 +21,8 @@ def delete_states(username, password, database):
     states = session.query(State).order_by(State.id).all()
 
     # Display results
-    for state in states:
-        if 'a' in state.name:
-            session.delete(state)
+    if states:
+        [session.delete(state) for state in states if 'a' in state.name]
 
     # Commit transaction
     session.commit()

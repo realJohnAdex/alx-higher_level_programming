@@ -22,6 +22,7 @@ def add_state(username, password, database):
     # Add to the session and commit transaction
     session.add(new_state)
     session.commit()
+    print(new_state.id)
 
     # Close session
     session.close()

@@ -1,3 +1,2 @@
-$(document).ready(function() {
-    $('header').css('color', '#FF0000');
-});
+// change the header color to red
+$('header').css({ color: '#ff0000' });
